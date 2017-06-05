@@ -1,0 +1,110 @@
+.main_container {
+    margin-right: 20%;
+    margin-left: 20%;
+    width: 60%;
+}
+
+.datepicker {
+    width: 35%;
+}
+
+.add_date_button {
+    width: 20%;
+    margin-left: 4%;
+    height: 34px;
+}
+
+.day_time {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.day_switch {
+    width: 30%;
+}
+
+.time_of_day {
+    width: 70%;
+}
+
+.os_container {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.os_label {
+    width: 30%;
+}
+
+.os_list {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.description {
+    width: 100%;
+    resize: none;
+}
+
+.save_rule_btn {
+    margin-top: 1%;
+}
+
+.input_name {
+    margin-bottom: 1%;
+}
+
+.btn_container {
+    display: flex;
+    width: 100%;
+}
+
+.save_btn {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.date {
+    margin-bottom: 17px
+}
+
+.delete_date_btn {
+    width: 15%;
+    float: right;
+}
+
+.rule {
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.rule_info {
+    display: inline-block;
+    width: 88%;
+    vertical-align:top;
+}
+.rule_btn_container {
+    display: inline-block;
+    width: 12%;
+}
+
+.rule_edit_btn {
+    float: right;
+    width: 80%;
+    margin: 2%;
+}
+
+.rule_delete_btn {
+    float: right;
+    width: 80%;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+
+.region {
+    width: 100%;
+}

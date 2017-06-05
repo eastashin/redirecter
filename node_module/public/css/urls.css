@@ -1,0 +1,23 @@
+.add_url_button {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.url_item {
+    margin-bottom: 0.5%;
+}
+
+.btn_edit_delete {
+    float: right;
+    width: 80%;
+    margin: 2%;
+}
+
+.url_container {
+    display: inline-block; width: 90%;
+    vertical-align:top;
+}
+
+.button_container {
+    display: inline-block; width: 9%;
+}
