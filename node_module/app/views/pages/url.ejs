@@ -1,0 +1,141 @@
+<% layout('../layout') -%>
+
+<script type="text/javascript" src="timepicker/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="timepicker/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="timepicker/css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" href="css/url.css"/>
+
+<div class="main_container">
+
+<h1><%= title %></h1>
+
+    <div id="modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Rule creator</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form id="addRuleForm">
+                        <p><input type="text" class="form-control" id="subUrl" name="url" pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" Placeholder="Url" required></p>
+                        <p><input type="text" class="form-control" id="subName" name="name" Placeholder="Name" required></p>
+                        <hr>
+                        <div id="date_container"></div>
+                        <div style="display: flex">
+                            <input type="text" class="form-control datepicker" id="datetimepicker1">
+                            <p style=" margin-left: 3%; margin-right: 3%; align: center" >-</p>
+                            <input type="text" class="form-control datepicker" id="datetimepicker2">
+                            <button type="button" class="btn btn-success add_date_button" onclick="addPeriod()">Add date</button>
+                        </div>
+                        <hr>
+                        <div>
+                            <div class="day_time">
+                                <label class="day_switch"><input type="checkbox" id="monday" > Monday</label>
+                                <input id="monday_time" class="form-control time_of_day" type="text" pattern="(([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]; ?)*" Placeholder="12:30-13:30; 16:20-19:00;">
+                            </div>
+                            <div class="day_time">
+                                <label class="day_switch"><input type="checkbox" id="tuesday" > Tuesday</label>
+                                <input id="tuesday_time" class="form-control time_of_day" type="text" pattern="(([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]; ?)*" Placeholder="12:30-13:30; 16:20-19:00;">
+                            </div>
+                            <div class="day_time">
+                                <label class="day_switch"><input type="checkbox" id="wednesday" > Wednesday</label>
+                                <input id="wednesday_time" class="form-control time_of_day" type="text" pattern="(([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]; ?)*" Placeholder="12:30-13:30; 16:20-19:00;">
+                            </div>
+                            <div class="day_time">
+                                <label class="day_switch"><input type="checkbox" id="thursday"> Thursday</label>
+                                <input id="thursday_time" class="form-control time_of_day" type="text" pattern="(([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]; ?)*" Placeholder="12:30-13:30; 16:20-19:00;">
+                            </div>
+                            <div class="day_time">
+                                <label class="day_switch"><input type="checkbox" id="friday" > Friday</label>
+                                <input id="friday_time" class="form-control time_of_day" type="text" pattern="(([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]; ?)*" Placeholder="12:30-13:30; 16:20-19:00;">
+                            </div>
+                            <div class="day_time">
+                                <label class="day_switch"><input type="checkbox" id="saturday" > Saturday</label>
+                                <input id="saturday_time" class="form-control time_of_day" type="text" pattern="(([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]; ?)*" Placeholder="12:30-13:30; 16:20-19:00;">
+                            </div>
+                            <div class="day_time">
+                                <label class="day_switch"><input type="checkbox" id="sunday" > Sunday</label>
+                                <input id="sunday_time" class="form-control time_of_day" type="text" pattern="(([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]-([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]; ?)*" name="time" Placeholder="12:30-13:30; 16:20-19:00">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="os_container">
+                            <label class="os_label"><input type="checkbox" id="use_os_params"/>&nbsp;Use OS params </label>
+                            <div class="row" >
+                                <div class="col-lg-12">
+                                    <div class="button-group">
+                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Operation system <span class="caret"></span></button>
+                                        <ul class="dropdown-menu os_list">
+                                            <li><input type="checkbox" id="check_windows"/>&nbsp;Windows</li>
+                                            <li><input type="checkbox" id="check_android"/>&nbsp;Android</li>
+                                            <li><input type="checkbox" id="check_ios"/>&nbsp;IOS</li>
+                                            <li><input type="checkbox" id="check_linux"/>&nbsp;Linux</li>
+                                            <li><input type="checkbox" id="check_other"/>&nbsp;Other</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <label>Country:</label><select id="country" class="crs-country region" data-region-id="one"></select>
+                        </div>
+                        <div>
+                            <label>Region:</label><select class="region" id="one"></select>
+                        </div>
+                        <hr>
+                        <div >
+                            <textarea class="form-control description" rows="10" id="subUrlDescription" placeholder="Description"></textarea>
+                        </div>
+                        <div >
+                            <button type="submit" class="btn btn-primary save_rule_btn">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<form id="form">
+
+    <% if(created) {%>
+        <input type="text" class="form-control input_name" id="name" Placeholder="Name" required value="<%= url.name %>">
+        <input type="text" class="form-control input_name" id="shortName" name="shortName" Placeholder="Name for link" required value="<%= url.shortName %>">
+        <% if (url.description) { %>
+            <textarea class="form-control description" rows="10" id="description" placeholder="Description"><%= url.description %></textarea>
+        <%} else {%>
+            <textarea class="form-control description" rows="10" id="description" placeholder="Description"></textarea>
+        <%}%>
+    <%} else {%>
+        <input type="text" class="form-control input_name" id="name" Placeholder="Name" required>
+        <input type="text" class="form-control input_name" id="shortName" name="shortName" Placeholder="Name for link" required>
+        <textarea class="form-control description" rows="10" id="description" placeholder="Description"></textarea>
+    <%}%>
+    <div id="urlContainer"></div>
+    <hr>
+    <div class="btn_container">
+        <button type="button" class="btn btn-success" onclick="showAddRuleLinkWindow()">Add rule link</button>
+        <% if(created) {%>
+            <button class="btn btn-primary save_btn" onclick="sendUrl(true, '<%= url._id %>')">Save</button>
+        <%} else {%>
+            <button class="btn btn-primary save_btn" onclick="sendUrl(false)">Save</button>
+        <%}%>
+    </div>
+
+</form>
+
+</div>
+
+<script type="text/javascript" src="js/url.js"></script>
+<script type="text/javascript" src="regionselector/crs.min.js"></script>
+
+<% if (created) { %>
+<script>
+    var created_urls = JSON.parse('<%= url.urls %>'.replace(/&quot;/g, '"'));
+    showUrl(created_urls);
+</script>
+<% } %>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="gradient">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/layout.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="title">Redirecter</span>
+        </div>
+        <div class="navbar_container" >
+            <a class="urls" href="/urls">Urls</a>
+            <a class="statistics" href="/statistics">Statistics</a>
+        </div>
+        <div class="navbar-collapse navbar-form collapse navbar-right" align="center">
+            <span class="username"><%= username %></span>
+            <a class="btn btn-success " href="/logout">Logout</a>
+        </div>
+    </div>
+</div>
+
+<div id="progress" class="progress_bar_container">
+    <img src="progress.gif" class="progress_bar_img">
+
+</div>
+
+<div class="container main_container">
+
+    <%- body -%>
+</div>
+
+</body>
+</html>
+

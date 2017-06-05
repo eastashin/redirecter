@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sign up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container" align="center">
+
+    <div id="error" class="alert alert-danger alert-dismissable fade in error">
+        <a href="#" class="close" onclick="hideError()">&times;</a>
+        <strong id="error_message"></strong>
+    </div>
+
+    <form id="form-signup" class="form-signin">
+        <h3 class="form-signin-heading">Please sign up</h3>
+        <input id="username" type="text" class="input-block-level" placeholder="Username" required>
+        <input id="password" type="password" class="input-block-level" placeholder="Password" required>
+        <input id="confirm_password" type="password" class="input-block-level" placeholder="Confirm password" required>
+        <div align="center">
+            <button class="btn btn-large btn-primary">Sign up</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="js/registration.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<% layout('../layout') -%>
+
+<link rel="stylesheet" href="css/statistics.css" />
+
+<h1 ><%= title %></h1>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript" src="timepicker/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="timepicker/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="timepicker/css/bootstrap-datetimepicker.min.css"/>
+
+
+<div>
+    <div class="url_name_container"><h2 id="url_name" class="url_title"></h2></div>
+    <div class="btn-group urls_switcher">
+        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" style="float: right">Urls <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <% urls.forEach( function(url) { %>
+            <li><a onclick="urlClick('<%= url.id %>', '<%= url.name %>')"><%= url.name %></a></li>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+
+
+<div class="date_btn_container">
+    <div class="btn-group prev_day_btn">
+        <button class="btn btn-success" id="previousDayButton" onclick="previousDay()">Previous day</button>
+    </div>
+    <div class="date_container">
+        <div class="date">
+            <h4 id="date" class="date_header"></h4>
+        </div>
+    </div>
+    <div class="btn-group next_day_btn" >
+        <button class="btn btn-success" id="nextDayButton" onclick="nextDay()" disabled style="float: right">Next day</button>
+    </div>
+</div>
+
+
+<div id="visits_chart_div" class="chart"></div>
+
+<div id="rules_chart_div" class="chart"></div>
+
+<div id="os_chart" class="chart"></div>
+
+<div id="region_chart" class="region_chart">
+    <table class="table" id="region_table">
+        <thead>
+        <tr>
+            <th>Region</th>
+            <th>Following a link</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript" src="uaparser/ua-parser.min.js"></script>
+<script type="text/javascript" src="js/statistics.js"></script>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages': ['corechart', 'line', 'corechart']});
+    google.charts.setOnLoadCallback(chartLoaded);
+
+    function chartLoaded() {
+        urlClick('<%= urls[0].id %>', '<%= urls[0].name %>')
+    }
+</script>

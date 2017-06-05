@@ -1,0 +1,10 @@
+{
+    "port" : 80,
+    "security": {
+    "tokenLife" : 3600
+},
+    "url":"http://redirecter.ru/",
+    "mongoose": {
+    "uri": "mongodb://evgeny:qwerty@ds163681.mlab.com:63681/redirecter2"
+}
+}
